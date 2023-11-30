@@ -1,11 +1,11 @@
 task: detect
 mode: train
-model: yolov8n.pt
-data: data.yaml
-epochs: 8
+model: yolov8n.yaml
+data: ./freshness--fruits-and-vegetables-7/data.yaml
+epochs: 30
 patience: 50
 batch: 16
-imgsz: 640
+imgsz: 800
 save: true
 save_period: -1
 cache: false
@@ -96,4 +96,4 @@ mixup: 0.0
 copy_paste: 0.0
 cfg: null
 tracker: botsort.yaml
-save_dir: C:\Users\susan\Documents\_UM\23Fall\EECS504\cv_freshness\runs\detect\train2
+save_dir: runs/detect/train2
