@@ -58,7 +58,7 @@ create_dir(test_dir)
 create_dir(test_img_dir)
 create_dir(test_label_dir)
 
-dataset_path = '/content/dataset/dataset'
+dataset_path = '.\\content\\dataset\\dataset'
 
 fruit_count=[]
 fruit_name=[]
@@ -122,46 +122,46 @@ def get_image_range(img_path):
     return xp, yp, wp, hp
 
 for dirname, _, filenames in os.walk(dataset_path):
-    if dirname[1:].split('/')[-2]=='train':
+    if dirname[1:].split('\\')[-2]=='train':
         for img_path in glob.glob(dirname+'/*.png'):
-            shutil.copy(img_path, os.path.join(train_img_dir, img_path.split('/')[-1]))
+            shutil.copy(img_path, os.path.join(train_img_dir, img_path.split('\\')[-1]))
             label=0
-            if img_path.split('/')[-2] == 'freshapples':
+            if img_path.split('\\')[-2] == 'freshapples':
                 label=0
-            elif img_path.split('/')[-2] == 'freshbanana':
+            elif img_path.split('\\')[-2] == 'freshbanana':
                 label=1
-            elif img_path.split('/')[-2] == 'freshoranges':
+            elif img_path.split('\\')[-2] == 'freshoranges':
                 label=2
-            elif img_path.split('/')[-2] == 'rottenapples':
+            elif img_path.split('\\')[-2] == 'rottenapples':
                 label=3
-            elif img_path.split('/')[-2] == 'rottenbanana':
+            elif img_path.split('\\')[-2] == 'rottenbanana':
                 label=4
-            elif img_path.split('/')[-2] == 'rottenoranges':
+            elif img_path.split('\\')[-2] == 'rottenoranges':
                 label=5
             x_center, y_center, box_width, box_height = get_image_range(img_path)
             text = str(label)+' '+str(x_center)+' '+str(y_center)+' '+str(box_width)+' '+str(box_height)
-            with open (os.path.join(train_label_dir, img_path.split('/')[-1][:-4]+'.txt'),'w') as file:
+            with open (os.path.join(train_label_dir, img_path.split('\\')[-1][:-4]+'.txt'),'w') as file:
                 file.write(text)
 
-    if dirname[1:].split('/')[-2]=='test':
+    if dirname[1:].split('\\')[-2]=='test':
         for img_path in glob.glob(dirname+'/*.png'):
-            shutil.copy(img_path, os.path.join(test_img_dir, img_path.split('/')[-1]))
+            shutil.copy(img_path, os.path.join(test_img_dir, img_path.split('\\')[-1]))
             label=0
-            if img_path.split('/')[-2] == 'freshapples':
+            if img_path.split('\\')[-2] == 'freshapples':
                 label=0
-            elif img_path.split('/')[-2] == 'freshbanana':
+            elif img_path.split('\\')[-2] == 'freshbanana':
                 label=1
-            elif img_path.split('/')[-2] == 'freshoranges':
+            elif img_path.split('\\')[-2] == 'freshoranges':
                 label=2
-            elif img_path.split('/')[-2] == 'rottenapples':
+            elif img_path.split('\\')[-2] == 'rottenapples':
                 label=3
-            elif img_path.split('/')[-2] == 'rottenbanana':
+            elif img_path.split('\\')[-2] == 'rottenbanana':
                 label=4
-            elif img_path.split('/')[-2] == 'rottenoranges':
+            elif img_path.split('\\')[-2] == 'rottenoranges':
                 label=5
             x_center, y_center, box_width, box_height = get_image_range(img_path)
             text = str(label)+' '+str(x_center)+' '+str(y_center)+' '+str(box_width)+' '+str(box_height)
-            with open (os.path.join(test_label_dir, img_path.split('/')[-1][:-4]+'.txt'),'w') as file:
+            with open (os.path.join(test_label_dir, img_path.split('\\')[-1][:-4]+'.txt'),'w') as file:
                 file.write(text)
 
 print(f'There are {len(os.listdir(train_img_dir))} train images')
@@ -198,45 +198,45 @@ plt.setp(texts, fontweight='semibold', font='monospace')
 axes[1].legend(loc=[1,0.5])
 axes[1].set_title('The image count distribution\n', font='monospace', weight='semibold', size=15);
 
-# for path in os.listdir(train_img_dir):
-#     if 'translation' in path:
-#         os.remove(os.path.join(train_img_dir, path))
-#     elif 'rotated' in path:
-#         os.remove(os.path.join(train_img_dir, path))
-#     elif 'vertical_flip' in path:
-#         os.remove(os.path.join(train_img_dir, path))
-#     elif 'saltandpepper' in path:
-#         os.remove(os.path.join(train_img_dir, path))
+for path in os.listdir(train_img_dir):
+    if 'translation' in path:
+        os.remove(os.path.join(train_img_dir, path))
+    elif 'rotated' in path:
+        os.remove(os.path.join(train_img_dir, path))
+    elif 'vertical_flip' in path:
+        os.remove(os.path.join(train_img_dir, path))
+    elif 'saltandpepper' in path:
+        os.remove(os.path.join(train_img_dir, path))
 
-# for path in os.listdir(test_img_dir):
-#     if 'translation' in path:
-#         os.remove(os.path.join(test_img_dir, path))
-#     elif 'rotated' in path:
-#         os.remove(os.path.join(test_img_dir, path))
-#     elif 'vertical_flip' in path:
-#         os.remove(os.path.join(test_img_dir, path))
-#     elif 'saltandpepper' in path:
-#         os.remove(os.path.join(test_img_dir, path))
+for path in os.listdir(test_img_dir):
+    if 'translation' in path:
+        os.remove(os.path.join(test_img_dir, path))
+    elif 'rotated' in path:
+        os.remove(os.path.join(test_img_dir, path))
+    elif 'vertical_flip' in path:
+        os.remove(os.path.join(test_img_dir, path))
+    elif 'saltandpepper' in path:
+        os.remove(os.path.join(test_img_dir, path))
 
-# for path in os.listdir(train_label_dir):
-#     if 'translation' in path:
-#         os.remove(os.path.join(train_label_dir, path))
-#     elif 'rotated' in path:
-#         os.remove(os.path.join(train_label_dir, path))
-#     elif 'vertical_flip' in path:
-#         os.remove(os.path.join(train_label_dir, path))
-#     elif 'saltandpepper' in path:
-#         os.remove(os.path.join(train_label_dir, path))
+for path in os.listdir(train_label_dir):
+    if 'translation' in path:
+        os.remove(os.path.join(train_label_dir, path))
+    elif 'rotated' in path:
+        os.remove(os.path.join(train_label_dir, path))
+    elif 'vertical_flip' in path:
+        os.remove(os.path.join(train_label_dir, path))
+    elif 'saltandpepper' in path:
+        os.remove(os.path.join(train_label_dir, path))
 
-# for path in os.listdir(test_label_dir):
-#     if 'translation' in path:
-#         os.remove(os.path.join(test_label_dir, path))
-#     elif 'rotated' in path:
-#         os.remove(os.path.join(test_label_dir, path))
-#     elif 'vertical_flip' in path:
-#         os.remove(os.path.join(test_label_dir, path))
-#     elif 'saltandpepper' in path:
-#         os.remove(os.path.join(test_label_dir, path))
+for path in os.listdir(test_label_dir):
+    if 'translation' in path:
+        os.remove(os.path.join(test_label_dir, path))
+    elif 'rotated' in path:
+        os.remove(os.path.join(test_label_dir, path))
+    elif 'vertical_flip' in path:
+        os.remove(os.path.join(test_label_dir, path))
+    elif 'saltandpepper' in path:
+        os.remove(os.path.join(test_label_dir, path))
 
 print(f'There are {len(os.listdir(train_img_dir))} train images')
 print(f'There are {len(os.listdir(train_label_dir))} corresponding train labels\n')
