@@ -1,0 +1,10 @@
+names:
+- fresh_apples
+- fresh_banana
+- fresh_oranges
+- rotten_apples
+- rotten_banana
+- rotten_oranges
+nc: 6
+train: ./fresh_or_rotten/train
+val: ./final_test_orange_banana
