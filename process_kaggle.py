@@ -266,7 +266,7 @@ train: /content/dataset/dataset/train
 val: /content/dataset/dataset/test
 """
 
-with open('/content/drive/MyDrive/data.yaml', 'w') as f:
+with open('./kaggle_data.yaml', 'w') as f:
     f.write(yaml_file)
 
 with open(os.path.join(train_label_dir, os.listdir(train_label_dir)[0]),'r') as f:
