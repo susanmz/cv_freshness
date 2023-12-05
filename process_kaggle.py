@@ -33,8 +33,8 @@ import pandas as pd
 import seaborn as sns
 import random
 import PIL
-
 base_dir = os.path.join('fresh_or_rotten')
+# base_dir = os.path.join('fresh_or_rotten_V2ROBOFLOW')
 
 train_dir = os.path.join(base_dir, 'train')
 train_img_dir = os.path.join(train_dir, 'images')
@@ -132,12 +132,16 @@ for dirname, _, filenames in os.walk(dataset_path):
                 label=1
             elif img_path.split('\\')[-2] == 'freshoranges':
                 label=2
+                # label=6
             elif img_path.split('\\')[-2] == 'rottenapples':
                 label=3
+                # label=8
             elif img_path.split('\\')[-2] == 'rottenbanana':
                 label=4
+                # label=9
             elif img_path.split('\\')[-2] == 'rottenoranges':
                 label=5
+                # label=13
             x_center, y_center, box_width, box_height = get_image_range(img_path)
             text = str(label)+' '+str(x_center)+' '+str(y_center)+' '+str(box_width)+' '+str(box_height)
             with open (os.path.join(train_label_dir, img_path.split('\\')[-1][:-4]+'.txt'),'w') as file:
@@ -153,12 +157,16 @@ for dirname, _, filenames in os.walk(dataset_path):
                 label=1
             elif img_path.split('\\')[-2] == 'freshoranges':
                 label=2
+                # label=6
             elif img_path.split('\\')[-2] == 'rottenapples':
                 label=3
+                # label=8
             elif img_path.split('\\')[-2] == 'rottenbanana':
                 label=4
+                # label=9
             elif img_path.split('\\')[-2] == 'rottenoranges':
                 label=5
+                # label=13
             x_center, y_center, box_width, box_height = get_image_range(img_path)
             text = str(label)+' '+str(x_center)+' '+str(y_center)+' '+str(box_width)+' '+str(box_height)
             with open (os.path.join(test_label_dir, img_path.split('\\')[-1][:-4]+'.txt'),'w') as file:
@@ -266,7 +274,7 @@ train: /content/dataset/dataset/train
 val: /content/dataset/dataset/test
 """
 
-with open('./kaggle_data.yaml', 'w') as f:
+with open('./roboflow_data.yaml', 'w') as f:
     f.write(yaml_file)
 
 with open(os.path.join(train_label_dir, os.listdir(train_label_dir)[0]),'r') as f:

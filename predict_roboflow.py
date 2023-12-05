@@ -5,7 +5,7 @@ from ultralytics import YOLO
 model = YOLO('runs/detect/train2/weights/best.pt')
 
 # Run inference on 'bus.jpg'
-results = model.predict('testfruit.jpg', imgsz=640) # source already setup
+results = model.predict('aob.jpg') # source already setup
 # results = model(')  # results list
 
 # Show the results
