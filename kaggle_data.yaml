@@ -6,5 +6,5 @@ names:
 - rotten_banana
 - rotten_oranges
 nc: 6
-train: ./self-annotated-kaggle/train
-val: ./self-annotated-kaggle/test
+train: ./reduced-self-annotated-kaggle/train
+val: ./reduced-self-annotated-kaggle/test
