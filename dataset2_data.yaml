@@ -1,0 +1,11 @@
+names:
+- f_banana
+- f_orange
+- r_banana
+- r_orange
+- w
+- f_lulo
+- r_lulo
+nc: 7
+train: ./Dataset_2/Dataset_2/train
+val: ./Dataset_2/Dataset_2/test

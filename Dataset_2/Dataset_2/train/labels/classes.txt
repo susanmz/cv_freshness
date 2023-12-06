@@ -1,0 +1,7 @@
+f_banana
+f_orange
+r_banana
+r_orange
+w
+f_lulo
+r_lulo
