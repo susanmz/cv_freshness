@@ -1,0 +1,6 @@
+names:
+- fresh
+- rotten
+nc: 2
+train: ./fresh_or_rotten_2cat/train
+val: ./fresh_or_rotten_2cat/test
