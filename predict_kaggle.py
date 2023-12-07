@@ -1,7 +1,7 @@
 from PIL import Image
 from ultralytics import YOLO
-model = YOLO('runs/detect/train15/weights/best.pt') # Kaggle data
-results = model.predict(source='.\\GOODPHOTOS\\apples.jpg', imgsz=800, conf=0.25, save=True)
+model = YOLO('runs/detect/train17/weights/best.pt') # Kaggle data
+results = model.predict(source='.\\GOODPHOTOS\\testfruit.jpg', imgsz=800, conf=0.25, save=True)
 
 for r in results:
     im_array = r.plot()  # plot a BGR numpy array of predictions
